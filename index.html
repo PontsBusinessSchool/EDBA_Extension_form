@@ -263,7 +263,8 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      margin-bottom: 8px;
+      margin-bottom: 0;
+      align-items: start;
     }
     .payment-card {
       border: 1.5px solid var(--border);
@@ -431,8 +432,8 @@
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-badge"><span class="dot"></span> Official Form</div>
-    <h1>Enrollment Extension<br>Executive DBA Programme</h1>
-    <p>Use this form to confirm your 12-month extension of active doctoral student status. Please have the extension fee communicated to you by the School ready before completing this form.</p>
+    <h1>Enrollment Extension<br>Executive DBA Program</h1>
+    <p>Use this form to confirm your 12-month extension of active doctoral student status. Please have your Confirmation/Enrollment Agreement available before completing this form.</p>
   </div>
 </div>
 
@@ -465,11 +466,10 @@
             <input type="tel" id="phone" name="phone" placeholder="e.g. +33 6 12 34 56 78" autocomplete="tel" />
           </div>
           <div class="field-group" id="fg-year">
-            <label for="enrollYear">Year of Official EDBA Enrollment <span class="req">*</span></label>
+            <label for="enrollYear">Enrollment Year <span class="req">*</span></label>
             <select id="enrollYear" name="enrollYear">
               <option value="" disabled selected>Select year&#8230;</option>
             </select>
-            <span class="field-hint">The calendar year you officially began the Executive DBA programme.</span>
             <span class="error-msg">Please select your enrollment year.</span>
           </div>
         </div>
@@ -484,19 +484,15 @@
       </div>
       <div class="section-body">
 
-        <div class="info-box">
-          <strong>Your clock starts now.</strong> The moment you submit, your 12-month extension begins. Pay immediately using one of the options in Section 3 below to make it official.
-        </div>
-
         <div class="field-row full" style="margin-bottom:28px;">
           <div class="field-group" id="fg-fee">
-            <label for="feeAmount">Extension Fee Communicated by the School <span class="req">*</span></label>
+            <label for="feeAmount">Extension Fee <span class="req">*</span></label>
             <div class="fee-wrapper">
               <span class="fee-prefix">&#8364;</span>
-              <input type="number" id="feeAmount" name="feeAmount" placeholder="Enter the amount from the School&#8217;s email" min="0" step="0.01" />
+              <input type="number" id="feeAmount" name="feeAmount" placeholder="Enter the amount from your Confirmation/Enrollment Agreement" min="0" step="0.01" />
             </div>
-            <span class="field-hint">Enter the exact fee stated in the email you received from our Admissions or Academic Affairs department.</span>
-            <span class="error-msg">Please enter the fee amount communicated to you.</span>
+            <span class="field-hint">Please refer to your Confirmation/Enrollment Agreement under the section "Enrollment Extension Policy."</span>
+            <span class="error-msg">Please enter the fee amount as stated in your Enrollment Agreement.</span>
           </div>
         </div>
 
@@ -509,10 +505,10 @@
             <input type="checkbox" id="confirm12" name="confirm12" />
             <label class="checkbox-label" for="confirm12">
               <span class="tag">12 Months</span>
-              I acknowledge that my 12-month extension period <strong>commences on the date of this submission</strong>, regardless of when payment is received.
+              I understand that my <strong>12-month extension starts today, upon submission of this form</strong>, and that once confirmed, I'll follow the Executive DBA academic policies currently in place. I look forward to receiving the current Participant Handbook upon confirmation.
             </label>
           </div>
-          <span class="checkbox-error" id="err-cb1">Please tick this box to confirm your 12-month extension.</span>
+          <span class="checkbox-error" id="err-cb1">Please tick this box to confirm your 12-month extension and acceptance of academic policies.</span>
 
           <div class="checkbox-block" id="cb-block-2">
             <input type="checkbox" id="confirmPayment" name="confirmPayment" />
@@ -537,7 +533,7 @@
 
         <div class="urgency-banner">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
-          <p><strong>Please note:</strong> Your 12-month extension period commenced on the date of this submission. To ensure no time is lost, we encourage you to complete your payment at your earliest convenience.</p>
+          <p><strong>Please note:</strong> Your 12-month extension period began on the date of this submission. To ensure no time is lost, we encourage you to complete your payment at your earliest convenience.</p>
         </div>
 
         <p style="font-size:13.5px; color:var(--muted); line-height:1.65; margin-bottom:20px;">
@@ -547,17 +543,24 @@
         <div class="payment-options">
 
           <!-- FLYWIRE -->
-          <div class="payment-card flywire-card">
-            <div class="payment-card-header">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              Option 1 &#8212; Online Payment (Flywire)
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div class="payment-card flywire-card">
+              <div class="payment-card-header">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                Option 1 &#8212; Online Payment (Flywire)
+              </div>
+              <div class="payment-card-body">
+                <a href="https://payment.flywire.com/pay/payment?recipient=EPN" target="_blank" rel="noopener" class="flywire-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  Pay securely via Flywire
+                </a>
+                <p class="payment-note">Our secure online payment platform. Accepts Credit Card payments and international bank transfers.</p>
+              </div>
             </div>
-            <div class="payment-card-body">
-              <a href="https://payment.flywire.com/pay/payment?recipient=EPN" target="_blank" rel="noopener" class="flywire-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                Pay securely via Flywire
-              </a>
-              <p class="payment-note">Our secure online payment platform. Accepts international bank transfers and multiple currencies.</p>
+            <!-- NOTE BOX sits under Flywire card filling the white space -->
+            <div style="background:#eef1fa; border:1.5px solid var(--border); border-radius:8px; padding:14px 18px; display:flex; align-items:flex-start; gap:12px;">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="var(--accent)" stroke-width="2" style="width:18px;height:18px;flex-shrink:0;margin-top:2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <p style="font-size:13px;color:var(--navy);line-height:1.6;margin:0;">For both payment options, please use your <strong>full name</strong> as the payment reference so we can identify your payment.</p>
             </div>
           </div>
 
@@ -606,6 +609,7 @@
           </div>
 
         </div>
+
       </div>
 
       <hr class="section-divider" />
@@ -640,7 +644,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#27ae60" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
       </div>
       <h2>Confirmation Received</h2>
-      <p>Thank you. Your 12-month extension period has commenced as of today's date. To ensure your status is formally confirmed without delay, we kindly ask that you proceed with payment at your earliest convenience using the options provided on this page.</p>
+      <p>Thank you. Your 12-month extension period has begun as of today's date. To ensure your status is formally confirmed without delay, we kindly ask that you proceed with payment at your earliest convenience using the options provided on this page.</p>
     </div>
 
   </div>
