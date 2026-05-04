@@ -395,6 +395,68 @@
     .urgency-banner p { font-size: 13px; line-height: 1.6; color: #7a5200; }
     .urgency-banner p strong { color: #5c3d00; }
 
+    /* ── REVIEW SCREEN ── */
+    #reviewScreen { display: none; padding: 40px 32px; }
+    #reviewScreen.visible { display: block; }
+    .review-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px; font-weight: 700;
+      color: var(--navy); margin-bottom: 6px;
+    }
+    .review-subtitle {
+      font-size: 13.5px; color: var(--muted);
+      margin-bottom: 28px; line-height: 1.6;
+    }
+    .review-table { width: 100%; border-collapse: collapse; margin-bottom: 28px; }
+    .review-table tr { border-bottom: 1px solid var(--border); }
+    .review-table tr:last-child { border-bottom: none; }
+    .review-table td { padding: 10px 0; font-size: 13.5px; vertical-align: top; }
+    .review-table td:first-child {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--muted); width: 38%; padding-right: 16px;
+    }
+    .review-table td:last-child { color: var(--text); font-weight: 500; }
+    .review-table .confirm-val {
+      color: var(--green); font-weight: 600; font-size: 13px;
+    }
+    .review-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--border); border-radius: 8px;
+      padding: 12px 22px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px; font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .btn-back:hover { border-color: var(--navy); background: var(--navy-light); }
+    .btn-confirm {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--green);
+      color: #fff;
+      border: none; border-radius: 8px;
+      padding: 13px 28px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13.5px; font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-confirm:hover { background: #15693d; transform: translateY(-1px); }
+    .btn-confirm svg { width: 16px; height: 16px; }
+    .review-warning {
+      background: #fff8ec;
+      border: 1.5px solid #f0c060;
+      border-left: 4px solid #e6a817;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 13px; color: #7a5200; line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
     /* ── HONEYPOT — must stay invisible to humans ── */
     .hp-field {
       opacity: 0;
@@ -457,23 +519,23 @@
         <div class="field-row">
           <div class="field-group" id="fg-name">
             <label for="fullName">Full Name <span class="req">*</span></label>
-            <input type="text" id="fullName" name="fullName" placeholder="e.g. Marie Dupont" autocomplete="name" />
+            <input type="text" id="fullName" name="Full Name" placeholder="e.g. Marie Dupont" autocomplete="name" />
             <span class="error-msg">Please enter your full name.</span>
           </div>
           <div class="field-group" id="fg-email">
             <label for="email">Email Address <span class="req">*</span></label>
-            <input type="email" id="email" name="email" placeholder="e.g. marie.dupont@email.com" autocomplete="email" />
+            <input type="email" id="email" name="Email Address" placeholder="e.g. marie.dupont@email.com" autocomplete="email" />
             <span class="error-msg">Please enter a valid email address.</span>
           </div>
         </div>
         <div class="field-row">
           <div class="field-group" id="fg-phone">
             <label for="phone">Contact Telephone</label>
-            <input type="tel" id="phone" name="phone" placeholder="e.g. +33 6 12 34 56 78" autocomplete="tel" />
+            <input type="tel" id="phone" name="Contact Telephone" placeholder="e.g. +33 6 12 34 56 78" autocomplete="tel" />
           </div>
           <div class="field-group" id="fg-year">
             <label for="enrollYear">Enrollment Year <span class="req">*</span></label>
-            <select id="enrollYear" name="enrollYear">
+            <select id="enrollYear" name="Enrollment Year">
               <option value="" disabled selected>Select year&#8230;</option>
             </select>
             <span class="error-msg">Please select your enrollment year.</span>
@@ -495,7 +557,7 @@
             <label for="feeAmount">Extension Fee <span class="req">*</span></label>
             <div class="fee-wrapper">
               <span class="fee-prefix">&#8364;</span>
-              <input type="number" id="feeAmount" name="feeAmount" placeholder="Enter the amount from your Confirmation/Enrollment Agreement" min="0" step="0.01" />
+              <input type="number" id="feeAmount" name="Extension Fee (EUR)" placeholder="Enter the amount from your Confirmation/Enrollment Agreement" min="0" step="0.01" />
             </div>
             <span class="field-hint">Please refer to your Confirmation/Enrollment Agreement under the section "Enrollment Extension Policy."</span>
             <span class="error-msg">Please enter the fee amount as stated in your Enrollment Agreement.</span>
@@ -508,7 +570,7 @@
           </div>
 
           <div class="checkbox-block" id="cb-block-1">
-            <input type="checkbox" id="confirm12" name="confirm12" />
+            <input type="checkbox" id="confirm12" name="12-Month Extension Starts on Submission Date" value="Yes, I confirm" />
             <label class="checkbox-label" for="confirm12">
               <span class="tag">12 Months</span>
               I understand that my <strong>12-month extension starts today, upon submission of this form</strong>, and that once confirmed, I'll follow the Executive DBA academic policies currently in place. I look forward to receiving the current Participant Handbook upon confirmation.
@@ -517,7 +579,7 @@
           <span class="checkbox-error" id="err-cb1">Please tick this box to confirm your 12-month extension and acceptance of academic policies.</span>
 
           <div class="checkbox-block" id="cb-block-2">
-            <input type="checkbox" id="confirmPayment" name="confirmPayment" />
+            <input type="checkbox" id="confirmPayment" name="Payment Required to Activate Extension" value="Yes, I confirm" />
             <label class="checkbox-label" for="confirmPayment">
               <span class="tag">Payment</span>
               I commit to <strong>arranging payment promptly</strong> upon submission. I understand that my extension will only be formally confirmed once payment has been received by the School.
@@ -644,6 +706,37 @@
 
     </form>
 
+    <!-- REVIEW SCREEN -->
+    <div id="reviewScreen">
+      <h2 class="review-title">Please Review Your Submission</h2>
+      <p class="review-subtitle">Please verify the details below before confirming. Once submitted, your 12-month extension period will commence immediately.</p>
+
+      <div class="review-warning">
+        &#9432;&nbsp; <strong>This is your final check.</strong> Once you click "Confirm &amp; Submit", your extension request will be sent to the School and your extension period will begin.
+      </div>
+
+      <table class="review-table">
+        <tr><td>Full Name</td><td id="rv-name">—</td></tr>
+        <tr><td>Email Address</td><td id="rv-email">—</td></tr>
+        <tr><td>Contact Telephone</td><td id="rv-phone">—</td></tr>
+        <tr><td>Enrollment Year</td><td id="rv-year">—</td></tr>
+        <tr><td>Extension Fee</td><td id="rv-fee">—</td></tr>
+        <tr><td>12-Month Extension</td><td id="rv-cb1" class="confirm-val">Yes, I confirm</td></tr>
+        <tr><td>Payment Commitment</td><td id="rv-cb2" class="confirm-val">Yes, I confirm</td></tr>
+      </table>
+
+      <div class="review-actions">
+        <button class="btn-back" id="btnBack">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+          Go Back &amp; Edit
+        </button>
+        <button class="btn-confirm" id="btnConfirm">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          Confirm &amp; Submit
+        </button>
+      </div>
+    </div>
+
     <!-- SUCCESS -->
     <div id="successScreen">
       <div class="success-icon">
@@ -757,45 +850,74 @@
     }
 
     if (valid) {
-      // Execute reCAPTCHA v3 before submitting
-      grecaptcha.ready(function() {
-        grecaptcha.execute('6LftV9gsAAAAACtq9q69oxwEZ6mlswF6l9N0aVVd', {action: 'submit'}).then(function(token) {
-          let tokenInput = document.getElementById('g-recaptcha-response');
-          if (!tokenInput) {
-            tokenInput = document.createElement('input');
-            tokenInput.type = 'hidden';
-            tokenInput.id = 'g-recaptcha-response';
-            tokenInput.name = 'g-recaptcha-response';
-            document.getElementById('mainForm').appendChild(tokenInput);
-          }
-          tokenInput.value = token;
+      // Populate review screen
+      document.getElementById('rv-name').textContent  = document.getElementById('fullName').value;
+      document.getElementById('rv-email').textContent = document.getElementById('email').value;
+      document.getElementById('rv-phone').textContent = document.getElementById('phone').value || '—';
+      document.getElementById('rv-year').textContent  = document.getElementById('enrollYear').value;
+      document.getElementById('rv-fee').textContent   = '€' + parseFloat(document.getElementById('feeAmount').value).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
 
-          // Submit to Formspree via fetch
-          const formData = new FormData(document.getElementById('mainForm'));
-          fetch('https://formspree.io/f/mnjwpzop', {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-          }).then(function(response) {
-            if (response.ok) {
-              document.getElementById('mainForm').classList.add('hidden');
-              const s = document.getElementById('successScreen');
-              s.style.display = 'flex';
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-              alert('There was a problem submitting your form. Please try again or contact info@pontsbschool.com.');
-            }
-          }).catch(function() {
-            alert('There was a connection error. Please try again or contact info@pontsbschool.com.');
-          });
-        });
-      });
+      // Show review screen
+      document.getElementById('mainForm').classList.add('hidden');
+      document.getElementById('reviewScreen').classList.add('visible');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       const firstErr = document.querySelector('.field-group.error input, .field-group.error select, .cb-error');
       if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   });
 
+  // Back button — return to form
+  document.getElementById('btnBack').addEventListener('click', function() {
+    document.getElementById('reviewScreen').classList.remove('visible');
+    document.getElementById('mainForm').classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Confirm & Submit — run reCAPTCHA and POST to Formspree
+  document.getElementById('btnConfirm').addEventListener('click', function() {
+    const btn = this;
+    btn.textContent = 'Submitting…';
+    btn.disabled = true;
+
+    grecaptcha.ready(function() {
+      grecaptcha.execute('6LftV9gsAAAAACtq9q69oxwEZ6mlswF6l9N0aVVd', {action: 'submit'}).then(function(token) {
+        let tokenInput = document.getElementById('g-recaptcha-response');
+        if (!tokenInput) {
+          tokenInput = document.createElement('input');
+          tokenInput.type = 'hidden';
+          tokenInput.id = 'g-recaptcha-response';
+          tokenInput.name = 'g-recaptcha-response';
+          document.getElementById('mainForm').appendChild(tokenInput);
+        }
+        tokenInput.value = token;
+
+        const formData = new FormData(document.getElementById('mainForm'));
+        fetch('https://formspree.io/f/mnjwpzop', {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        }).then(function(response) {
+          if (response.ok) {
+            document.getElementById('reviewScreen').classList.remove('visible');
+            const s = document.getElementById('successScreen');
+            s.style.display = 'flex';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            btn.textContent = 'Confirm & Submit';
+            btn.disabled = false;
+            alert('There was a problem submitting your form. Please try again or contact info@pontsbschool.com.');
+          }
+        }).catch(function() {
+          btn.textContent = 'Confirm & Submit';
+          btn.disabled = false;
+          alert('There was a connection error. Please try again or contact info@pontsbschool.com.');
+        });
+      });
+    });
+  });
+
+  // Live clear field errors on input
   ['fullName','email','enrollYear','feeAmount'].forEach(id => {
     document.getElementById(id).addEventListener('input', function() {
       this.closest('.field-group').classList.remove('error');
